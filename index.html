@@ -80,7 +80,7 @@
                     </nav>
                     <nav>
                         总文章数
-                        15
+                        16
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -273,6 +273,127 @@
 
                 
   
+    <article id="post-nodejs学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/27/nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Nodejs</a>
+    </h1>
+  
+
+                    
+                        <a href="/2022/05/27/nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-05-27T05:24:22.728Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-27</time>
+</a>
+<span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
+                            
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    <!-- 添加标签页-分界线-开始 -->
+                    
+
+                                <!-- 添加标签页-分界线-结束 -->
+                                
+                                                    <h1 id="Nodejs入门"><a href="#Nodejs入门" class="headerlink" title="Nodejs入门"></a>Nodejs入门</h1><p>node.js是基于chrome V8引擎的JavaScript运行环境</p>
+<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>官网下载安装包<a target="_blank" rel="noopener" href="http://nodejs.cn/download/">下载 | Node.js 中文网 (nodejs.cn)</a></p>
+<h2 id="Node包管理器（npm）"><a href="#Node包管理器（npm）" class="headerlink" title="Node包管理器（npm）"></a>Node包管理器（npm）</h2><p>npm(Node Package Manager)是Node.js的包管理器。</p>
+<h3 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h3><p>安装包安装node.js时，npm已经装好</p>
+<p>源代码安装编译了node.js，在<code>http://npmjs.org/</code>找到npm的操作指南</p>
+<h3 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h3><ol>
+<li>本地安装：</li>
+</ol>
+<p>库将安装在项目本地的一个名为node_modules的文件夹下</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install [module_name]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>全局安装</li>
+</ol>
+<p>可以在文件系统的任何位置运行它</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g [module_name]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用模块"><a href="#使用模块" class="headerlink" title="使用模块"></a>使用模块</h3><p>在应用程序中请求模块：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="built_in">module</span> = <span class="built_in">require</span>(<span class="string">&#x27;module&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="查找模块"><a href="#查找模块" class="headerlink" title="查找模块"></a>查找模块</h3><p>使用npm命令行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm search [module_name]</span><br><span class="line">npm search [key1] [key2] [key3]</span><br></pre></td></tr></table></figure>
+
+
+<p>运行如下命令在浏览器中查看模块文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm docs [module_name]</span><br></pre></td></tr></table></figure>
+<p>查看bug:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm bugs [module_name]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="package-json指定依赖关系"><a href="#package-json指定依赖关系" class="headerlink" title="package.json指定依赖关系"></a>package.json指定依赖关系</h3><p>使用package.json文件来指定在应用程序中要的模块，并通过当个命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+
+<p>package.json文件格式</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;version&quot;</span>:<span class="string">&quot;0.0.1&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dependencies&quot;</span>:&#123;</span><br><span class="line">        <span class="attr">&quot;underscore&quot;</span>:<span class="string">&quot;~1.2.1&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="http模块"><a href="#http模块" class="headerlink" title="http模块"></a>http模块</h2><h2 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h2><h2 id="数据的持久化"><a href="#数据的持久化" class="headerlink" title="数据的持久化"></a>数据的持久化</h2>
+                                                        
+
+                                                            
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nodejs入门</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2022/05/27/nodejs%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+                
+  
     <article id="post-前端学习笔记scss" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -405,10 +526,6 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
@@ -490,10 +607,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
@@ -753,7 +866,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">原型链</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">js原型链</a>
         		</li>
       		
 		</ul>
@@ -965,88 +1078,6 @@
 
                 
   
-    <article id="post-前端学习笔记vue实录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0vue%E5%AE%9E%E5%BD%95/">vue学习实录(未整理)</a>
-    </h1>
-  
-
-                    
-                        <a href="/2022/04/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0vue%E5%AE%9E%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2022-04-02T08:33:40.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-02</time>
-</a>
-<span id="busuanzi_container_page_pv">  本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span>
-                            
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    <!-- 添加标签页-分界线-开始 -->
-                    
-
-                                <!-- 添加标签页-分界线-结束 -->
-                                
-                                    <h1 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h1>
-                                        
-                                            <a class="article-more-a" href="/2022/04/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0vue%E5%AE%9E%E5%BD%95/#more">
-                                                more >></a>
-                                            
-                                                
-
-                                                            
-        </div>
-        <div class="article-info article-info-index">
-            
-                    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                        
-
-                            
-                                <p class="article-more-link">
-                                    <a class="article-more-a" href="/2022/04/02/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0vue%E5%AE%9E%E5%BD%95/">
-                                        展开全文 >></a>
-                                </p>
-                                
-
-                                    
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-                
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1201,10 +1232,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">原型链</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">css处理器</a>
               </li>
              
@@ -1214,6 +1241,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nodejs入门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">js原型链</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
             
             <div class="clearfix"></div>
